@@ -16,18 +16,18 @@ import com.gokhantamkoc.javabootcamp.odevhafta3.repository.CryptoDataCSVReposito
 @RunWith(SpringRunner.class)
 public class CryptoDataCSVRepositoryTests {
 
-	@Test
-	public void TestReadCSV() {
-		CSVRepository csvRepository = new CryptoDataCSVRepository();
-		try {
-			List<Candle> candles = csvRepository.readCSV("Binance_BTCUSDT_d.csv");
-			assertThat(candles.size()).isGreaterThan(0);
-			assertThat(candles.get(0).getTime()).isEqualTo(1_655_600_000_000L);
-			assertThat(candles.get(18).getTime()).isEqualTo(1_654_040_000_000L);
-		} catch(Exception ex) {
-        	System.out.println(ex.getMessage());
-        	ex.printStackTrace();
-			fail();
+    @Test
+    public void TestReadCSV() {
+        CSVRepository csvRepository = new CryptoDataCSVRepository();
+        try {
+            List<Candle> candles = csvRepository.readCSV("Binance_BTCUSDT_d.csv");
+            assertThat(candles.size()).isGreaterThan(0);
+            assertThat(candles.get(0).getTime()).isEqualTo(1_655_600_000_000L);
+            assertThat(candles.get(18).getTime()).isEqualTo(1_654_040_000_000L);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+            fail();
         }
-	}
+    }
 }
